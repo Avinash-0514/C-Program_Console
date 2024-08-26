@@ -1,0 +1,110 @@
+C# Programs
+===========
+public class Program
+{
+	public static void Main()
+	{
+		string [] arr = {"Avi","Tinu"};
+		//string[] resultarr = getEvenDivisible(arr);
+		foreach(string result in arr)
+		{
+			Console.WriteLine(result);
+		}
+	}
+
+	public static int[] getEvenDivisible(int[] arr)
+	{
+		
+		List<int> list1 = new List<int>(arr);
+		List<int> list2 = new List<int>();
+		foreach (int listValue in list1)
+		{
+			if (listValue % 2 == 0)
+			{
+				list2.Add(listValue);
+			}
+		}
+		
+		return list2.ToArray();
+	}
+}
+=======================================================
+using System;
+using System.Collections.Generic;
+
+public class Program
+{
+	public static void Main()
+	{
+		//C# Program to Print All the Multiples of 17 which are Less than 100
+		List<int> mulofSevenTeen = new List<int>();
+		mulofSevenTeen = GetListOfMultiples();
+		foreach (int item in mulofSevenTeen)
+		{
+			//Console.WriteLine($"Values are {item}");
+			Console.WriteLine("Values are " + item);
+		}
+	}
+
+	public static List<int> GetListOfMultiples()
+	{
+		List<int> listOfValues = new List<int>();
+		for (int i = 0; i <= 100; i++)
+		{
+			if (i % 17 == 0)
+			{
+				listOfValues.Add(i);
+			}
+		}
+
+		if (listOfValues.Count > 0)
+		{
+			return listOfValues;
+		}
+		else
+		{
+			return null;
+		}
+	}
+}
+==============================
+using System;
+using System.Collections.Generic;
+
+public class Program
+{
+	public static void Main()
+	{
+		//C# Program to Find Sum of Digits of a Number using Recursion
+		string values = string.Empty;
+		Console.WriteLine("Enter the value for recurssion");
+		string input = Console.ReadLine();
+		List<int> RecurssionValue = new List<int>();
+		//Tuple(List<int>, int)result = GetRecurssionValue(input);
+		Tuple<List<int>, int> result = GetRecurssionValue(input);
+		foreach (int item in result.Item1)
+		{
+			Console.WriteLine("The Recurssion value of " + input + " " + item + " = " + result.Item2);
+		}
+	}
+
+	public static Tuple<List<int>, int> GetRecurssionValue(string values)
+	{
+		int inputNumber = int.Parse(values);
+		int total = 0;
+		List<int> cursionList = new List<int>();
+		while (inputNumber > 0)
+		{
+			cursionList.Add(inputNumber);
+			inputNumber --;
+		}
+
+		foreach (int item in cursionList)
+		{
+			total = total + item;
+		}
+
+		return Tuple.Create(cursionList, total);
+	}
+}
++++++++++++++++++++++++++++++++++++++++++++++++++++
